@@ -1,0 +1,2 @@
+For pull private dockerhub
+kubectl create secret docker-registry regcred --docker-server=<registry> --docker-username=<your-name> --docker-password=<your-pword> --docker-email=<your-email>
