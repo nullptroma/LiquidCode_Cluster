@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd $(git rev-parse --show-toplevel)/postgres-operator
+cd $(git rev-parse --show-toplevel)/manifests/postgres-operator
 
 # apply the manifests in the following order
 kubectl create -f manifests/configmap.yaml  # configuration
