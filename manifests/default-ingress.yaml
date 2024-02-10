@@ -4,7 +4,8 @@ metadata:
   name: default-ingress
 spec:
   rules:
-    - http:
+    - host: api.nullptr.top
+      http:
         paths:
           - path: /
             pathType: Prefix
