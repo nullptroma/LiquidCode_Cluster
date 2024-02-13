@@ -1,7 +1,6 @@
 #!/bin/bash
 
-./setup_pgsql_operator.sh
-./setup_pgsql_operator_ui.sh
+./setup_cnpg.sh
 
 cd $(git rev-parse --show-toplevel)/manifests
 
