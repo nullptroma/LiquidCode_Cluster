@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: default-ingress
+  name: {{ .Release.Name }}-ingress
 spec:
   rules:
     - host: api.nullptr.top
@@ -11,6 +11,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: backend-service
+                name: {{ .Release.Name }}-backend-service
                 port:
                   number: 80
