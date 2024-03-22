@@ -1,7 +1,7 @@
 apiVersion: helm.cattle.io/v1
 kind: HelmChartConfig
 metadata:
-  name: {{ .Release.Name }}-traefik
+  name: traefik-close-secure-port-config
   namespace: kube-system
 spec:
   valuesContent: |-
