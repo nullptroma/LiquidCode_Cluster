@@ -1,2 +1,12 @@
-For pull private dockerhub
+# For pull private dockerhub
+```
 kubectl create secret docker-registry regcred --docker-server=<registry> --docker-username=<your-name> --docker-password=<your-pword> --docker-email=<your-email>
+```
+
+# For jwt secrets
+```
+kubectl create secret generic jwt-secrets \
+    --from-literal=JWT_ISSUER="liquid" \
+    --from-literal=JWT_AUDIENCE="audience"\
+    --from-literal=JWT_SINGING_KEY="supersecretkey_supersecretkey_supersecretkey_supersecretkey"
+```

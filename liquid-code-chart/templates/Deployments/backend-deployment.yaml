@@ -17,6 +17,7 @@ spec:
       containers:
       - name: {{ .Release.Name }}-backend
         image: ghcr.io/nullptroma/liquid-backend:1.0.0
+        imagePullPolicy: Always
         ports:
           - containerPort: 8080
         env:
@@ -30,6 +31,14 @@ spec:
             secretKeyRef:
               name: {{ .Values.s3.secretName | quote }}
               key: {{ required "secret-key-key!" .Values.s3.secretKeyKey | quote }}
+        - name: PG_URI
+          valueFrom:
+            secretKeyRef:
+              name: {{ required "Cluster name required" .Values.cnpg.clusterName }}-app
+              key: uri
+        envFrom:
+          - secretRef:
+              name: {{ required "" .Values.jwt.secretName }}
 
       imagePullSecrets:
         - name: github-registry

@@ -12,5 +12,6 @@ cnpg:
     enable: false
     oldClusterName: liquid-db
     sourcePath: "s3://liquid-code/backup"
-
+jwt:
+    secretName: jwt-secrets
 imagePullSecret: github-registry
