@@ -7,6 +7,7 @@ cnpg:
   clusterName: liquid-db
   backup:
     enable: true
+    schedule: "0 0 0 * * *"
     destinationPath: "s3://liquid-code/backup"
   recovery:
     enable: false

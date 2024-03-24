@@ -1,0 +1,11 @@
+{{ if .Values.cnpg.backup.enable }}
+apiVersion: postgresql.cnpg.io/v1
+kind: ScheduledBackup
+metadata:
+  name: {{ required "Cluster name required" .Values.cnpg.clusterName }}-scheduled-backup
+spec:
+  method: barmanObjectStore
+  schedule: {{ .Values.cnpg.backup.schedule | quote }}
+  cluster:
+    name: {{ required "Cluster name required" .Values.cnpg.clusterName }}
+{{ end }}

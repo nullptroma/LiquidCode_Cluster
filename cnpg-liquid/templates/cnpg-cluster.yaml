@@ -2,9 +2,6 @@ apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
   name: {{ required "Cluster name required" .Values.cnpg.clusterName }}
-  annotations:
-    "helm.sh/hook": pre-install
-    "helm.sh/hook-weight": "-1"
 spec:
   startDelay: 300
   stopDelay: 300
@@ -18,7 +15,7 @@ spec:
   externalClusters:
     - name: {{ required "Old cluster name required" .Values.cnpg.recovery.oldClusterName }}
       barmanObjectStore:
-        destinationPath: {{ .Values.cnpg.recovery.oldClusterName }}
+        destinationPath: {{ .Values.cnpg.recovery.sourcePath }}
         endpointURL: {{ .Values.s3.endpointUrl | quote }}
         s3Credentials:
           accessKeyId:
