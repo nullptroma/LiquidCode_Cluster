@@ -34,7 +34,7 @@ spec:
         - name: PG_URI
           valueFrom:
             secretKeyRef:
-              name: {{ required "Cluster name required" .Values.cnpg.clusterName }}-app
+              name: {{ required "Cluster creds secret required!" .Values.database.secretName }}
               key: uri
         envFrom:
           - secretRef:

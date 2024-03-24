@@ -3,15 +3,8 @@ s3:
   secretName: s3-credentials
   accessKeyKey: ACCESS_KEY_ID
   secretKeyKey: ACCESS_SECRET_KEY
-cnpg:
-  clusterName: liquid-db
-  backup:
-    enable: true
-    destinationPath: "s3://liquid-code/backup"
-  recovery:
-    enable: false
-    oldClusterName: liquid-db
-    sourcePath: "s3://liquid-code/backup"
 jwt:
     secretName: jwt-secrets
+database:
+  secretName: liquid-db-app
 imagePullSecret: github-registry
