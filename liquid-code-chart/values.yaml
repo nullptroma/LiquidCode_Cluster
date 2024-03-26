@@ -7,4 +7,6 @@ jwt:
     secretName: jwt-secrets
 database:
   secretName: liquid-db-app
+  migrateDb: true
+  dropDb: false
 imagePullSecret: github-registry

@@ -1,8 +1,8 @@
-{{ if .Values.database.migrateDb }}
+{{ if .Values.database.dropDb }}
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: {{.Release.Name}}-migration-job
+  name: {{.Release.Name}}-drop-job
   labels:
     app.kubernetes.io/managed-by: {{.Release.Service | quote }}
     app.kubernetes.io/instance: {{.Release.Name | quote }}
@@ -10,6 +10,7 @@ metadata:
     helm.sh/chart: "{{.Chart.Name}}-{{.Chart.Version}}"
   annotations:
     "helm.sh/hook": pre-install
+    "helm.sh/hook-weight": "-1"
     "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
 spec:
   template:
@@ -33,7 +34,7 @@ spec:
                 secretKeyRef:
                   name: {{ required "Cluster creds secret required!" .Values.database.secretName }}
                   key: uri
-            - name: MIGRATE_ONLY
+            - name: DROP_DATABASE
               value: "1"
       imagePullSecrets:
         - name: github-registry
