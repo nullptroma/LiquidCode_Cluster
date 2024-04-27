@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: {{ .Release.Name }}-frontend
-        image: ghcr.io/nullptroma/liquid-frontend
+        image: ghcr.io/nullptroma/liquid-frontend:latest
         imagePullPolicy: Always
         ports:
           - containerPort: 8000
