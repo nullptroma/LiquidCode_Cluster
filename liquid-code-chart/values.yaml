@@ -3,8 +3,10 @@ s3:
   secretName: s3-credentials
   accessKeyKey: ACCESS_KEY_ID
   secretKeyKey: ACCESS_SECRET_KEY
+  privateBucket: liquid-code
+  publicBucket: liquid-code-public
 jwt:
-    secretName: jwt-secrets
+  secretName: jwt-secrets
 database:
   secretName: liquid-db-app
   migrateDb: true
