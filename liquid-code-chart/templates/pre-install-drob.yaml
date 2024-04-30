@@ -24,7 +24,7 @@ spec:
       restartPolicy: Never
       containers:
         - name: {{ .Release.Name }}-backend
-          image: ghcr.io/nullptroma/liquid-backend:1.0.0
+          image: ghcr.io/nullptroma/liquid-backend:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
