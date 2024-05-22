@@ -37,6 +37,8 @@ spec:
                 secretKeyRef:
                   name: {{ .Values.s3.secretName | quote }}
                   key: {{ required "secret-key-key!" .Values.s3.secretKeyKey | quote }}
+            - name: TESTING_MODULE_URL
+              value: http://{{ .Release.Name }}-queue-service:8080/
             - name: PG_URI
               valueFrom:
                 secretKeyRef:

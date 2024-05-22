@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-queue-deployment
+  labels:
+    app: {{ .Release.Name }}-queue
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-queue
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-queue
+    spec:
+      containers:
+        - name: {{ .Release.Name }}-queue
+          image: ghcr.io/nullptroma/liquid-queue:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          securityContext:
+            privileged: true
+
+      imagePullSecrets:
+        - name: github-registry

@@ -11,4 +11,5 @@ database:
   secretName: liquid-db-app
   migrateDb: true
   dropDb: false
+staging: false
 imagePullSecret: github-registry

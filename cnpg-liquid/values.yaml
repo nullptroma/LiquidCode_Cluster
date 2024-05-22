@@ -8,8 +8,8 @@ cnpg:
   backup:
     enable: true
     schedule: "0 0 0 * * *"
-    destinationPath: "s3://liquid-code/backup"
+    destinationPath: "s3://liquid-code/backup-hexcore"
   recovery:
-    enable: false
+    enable: true
     oldClusterName: liquid-db
     sourcePath: "s3://liquid-code/backup"
